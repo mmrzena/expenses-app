@@ -3,7 +3,7 @@ body, html {
   margin: 0;
 }
 body {
-  width: 100%;
+  width: 700px;
   height: 100%;
   background-color: rgb(49, 54, 61);
 }
@@ -15,7 +15,7 @@ header {
   background: rgba(35,35,35,1);
   border-radius: 30px;
   padding: 20px 20px;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
     box-shadow: 0px 10px;
@@ -60,6 +60,39 @@ header button svg {
  position: absolute;
  top: 50%;
  left: 50%;
-
  margin: -13px 0 0 -13px;
+}
+
+.lists{
+  width: calc(100% - 200px);
+  height: 100%;
+  /* padding: 0 100px 0 100px; */
+  box-sizing: border-box;
+  text-align: left;
+  margin: 0 auto;
+}
+
+
+ul {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  width: calc(100% - 80px);
+  max-width: 400px;
+  float: left;
+  height: 220px;
+  margin: 20px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 30px;
+  border: 3px solid;
+  padding: 30px;
+  /* padding: 20px 20px; */
+  position: relative;
+  list-style: none;
+  box-sizing: border-box;
+  font-size: 32px;
+  font-weight: 500;
 }
