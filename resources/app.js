@@ -1,8 +1,19 @@
-var task = document.getElementById('task');
+var task = document.getElementById('expense');
 var addButton = document.getElementById('add');
-var list = document.getElementById('list');
+var listVydaju = document.getElementById('listVydaju');
 
-function addTask() {
-  list.appendChild(document.createElement("li"));
+
+addButton.addEventListener("click", function(){
+  var value = document.getElementById('expense').value;
+  if (value) {
+  pridaniVydaje(value);
+  document.getElementById('expense').value = '';
 }
-addButton.addEventListener("click", addTask, false);
+
+});
+
+function pridaniVydaje(value) {
+  var vydaj = document.createElement("li");
+  vydaj.innerText = "- " + value;
+  listVydaju.appendChild(vydaj);
+}
