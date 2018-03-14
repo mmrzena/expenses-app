@@ -12,7 +12,7 @@ body {
 header {
   width: 1000px;
   max-width: calc(100% - 100px);
-  height: 80px;
+  height: 250px;
   margin: 30px 0;
   background: rgba(35, 35, 35, 1);
   border-radius: 30px;
@@ -30,8 +30,9 @@ header input {
   font-size: 20px;
   border: 1px solid white;
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 5px 30px 30px 5px;
+  border-radius: 5px;
   text-indent: 16px;
+  margin-bottom: 13px;
   color: white;
   /* z-index: 3; */
   float: left;
@@ -47,12 +48,14 @@ header button {
   border: 0px;
   box-shadow: none;
   /* z-index: 2; */
-  top: 28px;
-  right: 15px;
+  top: 200px;
+  left: 50%;
+  margin: 0 -37px 0 -37px;
   float: left;
+  cursor: pointer;
 }
 
-header button:active, header button svg:active {
+header button:active, header button svg:active, ul li button svg:active {
   transform: scale(0.94, 0.94);
 }
 
@@ -62,7 +65,11 @@ header button svg {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -13px 0 0 -13px;
+  margin: -13px -13px -13px -13px;
+}
+
+button{
+
 }
 
 .list {
@@ -85,7 +92,7 @@ ul {
 ul li {
   width: calc(100% - 46px);
   max-width: 1000px;
-  height: 40px;
+  height: 80px;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 30px;
   border: 3px solid black;
@@ -102,5 +109,35 @@ ul li {
 }
 
 ul li:first-child{
-  margin-top: 180px;
+  margin-top: 350px;
+}
+
+span {
+  position: absolute;
+  left: 20px;
+  color: black;
+  text-transform: uppercase;
+}
+
+ul li button {
+  background: rgba(0, 0, 0, 0);
+  box-shadow: none;
+  border: none;
+  text-decoration: none;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  margin:  0 -15px 0 -15px;
+  cursor: pointer;
+  padding: 0;
+}
+
+ul li button svg {
+  /* fill: none; */
+  color: black;
+  width: 30px;
+  height:  30px;
+  margin: 0 auto;
 }
