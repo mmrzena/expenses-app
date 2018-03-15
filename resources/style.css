@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Mina:400,700&subset=latin-ext');
+
 body, html {
   padding: 0;
   margin: 0;
@@ -6,70 +8,114 @@ body, html {
 body {
   width: 100%;
   height: 100%;
-  background-color: rgb(49, 54, 61);
+  background-color: rgba(237, 237, 237, 0.5);
+  font-family: Mina;
 }
 
-header {
-  width: 1000px;
-  max-width: calc(100% - 100px);
-  height: 250px;
-  margin: 30px 0;
-  background: rgba(35, 35, 35, 1);
-  border-radius: 30px;
-  padding: 35px 20px 20px 20px;
+#header {
+  width: 600px;
+  height: 200px;
   position: fixed;
-  top: 0;
   left: 50%;
-  transform: translateX(-50%);
   z-index: 3;
+  margin: 0 -300px 0 -300px;
 }
 
-header input {
-  height: 60px;
-  width: 100%;
+#addItem {
+  width: 300px;
+  /* max-width: calc(100% - 100px); */
+  height: 100px;
+  margin-top: 30px;
+  background: rgba(48, 48, 48, 1);
+  border-radius: 30px;
+  border: 5px solid black;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  z-index: 3;
+
+}
+
+#addItem input {
+  height: 40px;
+  width: 65%;
   font-size: 20px;
   border: 1px solid white;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   text-indent: 16px;
-  margin-bottom: 13px;
+  margin-bottom: 17px;
   color: white;
-  /* z-index: 3; */
-  float: left;
-  padding-right: 80px;
+  padding-right: 10px;
   box-sizing: border-box;
+  font-family: Mina;
 }
 
-header button {
+#addItem input[type=number]{
+  margin: 0;
+}
+
+#addItem input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+}
+
+#addItem button {
   width: 74px;
   height: 74px;
   position: absolute;
   border-radius: 37px;
-  border: 0px;
+  border: 3px solid white;
   box-shadow: none;
-  /* z-index: 2; */
-  top: 200px;
-  left: 50%;
-  margin: 0 -37px 0 -37px;
+  top: 50%;
+  right: 20%;
+  margin: -37px;
   float: left;
   cursor: pointer;
 }
 
-header button:active, header button svg:active, ul li button svg:active {
+#addItem button:active, #addItem button svg:active, ul li button svg:active {
   transform: scale(0.94, 0.94);
 }
 
-header button svg {
+ul li button svg:active {
+    fill: #e83535;
+}
+
+#addItem button svg {
   width: 26px;
   height: 26px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -13px -13px -13px -13px;
+  margin: -13px;
 }
 
-button{
+li button svg:hover{
+  fill: #e83535;
+}
 
+#total {
+  width: 170px;
+  height: 140px;
+  line-height: 140px;
+  background: rgba(35, 35, 35, 1);
+  font-size: 30px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  margin-top: 30px;
+  padding: 0 5px 0 5px;
+  position: absolute;
+  top: 0;
+  color: white;
+  right: 20px ;
+  z-index: 3;
+  text-align: center;
+  border-radius: 30px;
+
+  border: 5px solid #f25959;
 }
 
 .list {
@@ -90,26 +136,26 @@ ul {
 }
 
 ul li {
-  width: calc(100% - 46px);
-  max-width: 1000px;
-  height: 80px;
+  width: calc(100% - 120px);
+  max-width: 500px;
+  height: 40px;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 30px;
   border: 3px solid black;
-  padding: 20px;
+  padding: 15px 20px 20px 20px;
   position: relative;
   list-style: none;
-  /* box-sizing: border-box; */
   font-size: 32px;
-  font-weight: 500;
-  color: red;
-  margin-bottom: 20px;
+  color: #f25959;
   text-align: right;
   z-index: 1;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 ul li:first-child{
-  margin-top: 350px;
+  margin-top: 190px;
 }
 
 span {
@@ -117,6 +163,9 @@ span {
   left: 20px;
   color: black;
   text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
 }
 
 ul li button {
@@ -127,17 +176,22 @@ ul li button {
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 70px;
+  top: 50%;
   left: 50%;
-  margin:  0 -15px 0 -15px;
+  margin: -15px;
   cursor: pointer;
   padding: 0;
 }
 
 ul li button svg {
-  /* fill: none; */
-  color: black;
   width: 30px;
   height:  30px;
   margin: 0 auto;
 }
+
+/* 
+@media only screen and (max-width: 800px) {
+  #header {
+    width: 100%;
+  }
+} */
