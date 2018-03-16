@@ -23,8 +23,9 @@ addButton.addEventListener("click", function() {
     document.getElementById('expense').value = '';
     document.getElementById('name').value = '';
   }
-  console.log(allExpends);
+
   renderExpenses();
+
 
 });
 
@@ -57,15 +58,11 @@ var allExpends = [
 ];
 
 
-// console.log(allExpends);
-
-
-
-
 function renderExpenses() {
   const parent = document.getElementById('listVydaju').innerHTML = "";
   var sum = 0;
   var totalAmount = document.getElementById('total');
+
   if (allExpends.length > 0) {
 
     for (i = 0; i < allExpends.length; i++) {
@@ -89,7 +86,8 @@ function renderExpenses() {
       sum += parseInt(allExpends[i].value);
     }
     totalAmount.innerHTML = "- " + sum;
-    console.log(sum);
+
+
   } else {
     totalAmount.innerHTML = "";
   }
@@ -104,5 +102,5 @@ function removeExpense(expendId) {
     return expendId != expend.id;
   });
   renderExpenses();
-  console.log(allExpends);
+
 };
