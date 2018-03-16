@@ -13,12 +13,14 @@ body {
 }
 
 #header {
-  width: 600px;
+  width: 550px;
   height: 200px;
   position: fixed;
+  top: 0;
   left: 50%;
   z-index: 3;
-  margin: 0 -300px 0 -300px;
+  margin: 0 -275px 0 -275px;
+  display: inline;
 }
 
 #addItem {
@@ -30,9 +32,8 @@ body {
   border-radius: 30px;
   border: 5px solid black;
   padding: 20px;
-  position: absolute;
-  top: 0;
-  left: 20px;
+  position: relative;
+  display: inline-block;
   z-index: 3;
 
 }
@@ -54,6 +55,7 @@ body {
 
 #addItem input[type=number]{
   margin: 0;
+  color: #f25959;
 }
 
 #addItem input[type=number]::-webkit-inner-spin-button {
@@ -104,17 +106,16 @@ li button svg:hover{
   background: rgba(35, 35, 35, 1);
   font-size: 30px;
   text-transform: uppercase;
-  border-radius: 5px;
   margin-top: 30px;
+  margin-left: 10px;
+  border-radius: 5px;
   padding: 0 5px 0 5px;
   position: absolute;
-  top: 0;
+  display: inline-block;
   color: white;
-  right: 20px ;
   z-index: 3;
   text-align: center;
   border-radius: 30px;
-
   border: 5px solid #f25959;
 }
 
@@ -155,7 +156,7 @@ ul li {
 }
 
 ul li:first-child{
-  margin-top: 190px;
+  margin-top: 200px;
 }
 
 span {
@@ -189,9 +190,46 @@ ul li button svg {
   margin: 0 auto;
 }
 
-/* 
-@media only screen and (max-width: 800px) {
+
+@media only screen and (max-width: 500px) {
+  body{
+    width: 100%;
+    height: 100%;
+  }
   #header {
     width: 100%;
+    left: 0;
+    margin: 0;
+    height: 260px;
   }
-} */
+
+  #addItem {
+    width: 300px;
+    display: block;
+    margin: 20px auto;
+  }
+
+  #total {
+    height: 50px;
+    line-height: 50px;
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+
+  }
+
+  .list {
+    padding: 0 15px 0 15px;
+  }
+
+
+  ul li {
+      width: calc(100% - 45px);
+  }
+
+  ul li:first-child {
+
+    margin-top: 260px;
+  }
+}
