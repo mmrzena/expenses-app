@@ -156,7 +156,7 @@ ul li {
 }
 
 ul li:first-child{
-  margin-top: 200px;
+  margin-top: 300px;
 }
 
 span {
@@ -228,8 +228,7 @@ ul li button svg {
       width: calc(100% - 45px);
   }
 
-  ul li:first-child {
-
-    margin-top: 270px;
-  }
+  /* ul li:first-child {
+    margin-top: 300px;
+  } */
 }
