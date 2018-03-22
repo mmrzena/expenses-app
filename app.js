@@ -8,20 +8,31 @@ addButton.addEventListener("click", function() {
   var expense = document.getElementById('expense').value;
   var name = document.getElementById('name').value;
   var id;
+  var categoryId =  selectCategory.value;
+  var nameOfCategory =  selectCategory.options[selectCategory.selectedIndex].text;
+  var countryId =  selectCountry.value;
+  var nameOfCountry =  selectCountry.options[selectCountry.selectedIndex].text;
+  var comment = document.getElementById('comment').value;
+  console.log(nameOfCategory)
   if (name && expense) {
     if (allExpenses.length == 0) {
       id = 1;
     } else {
       id = allExpenses.length + 1;
     }
-    allExpenses.push({id: id, name: name, value: expense});
+    allExpenses.push({id: id, name: name, value: expense, categoryId: categoryId, categoryName: nameOfCategory,
+                      countryId: countryId, countryName: nameOfCountry, comment: comment });
     updateData();
     document.getElementById('expense').value = '';
     document.getElementById('name').value = '';
+    document.getElementById('comment').value = '';
     renderExpenses();
+
   }
 
 });
+
+
 
 var allExpenses = [
   // {
@@ -55,56 +66,32 @@ function updateData () {
 localStorage.setItem('allExpenses', JSON.stringify(allExpenses));
 }
 
+
+
 function renderExpenses() {
   if(localStorage.getItem('allExpenses')) {
   allExpenses = JSON.parse(localStorage.getItem('allExpenses'));
 }
+
   document.getElementById('listVydaju').innerHTML = "";
   var sum = 0;
   var totalAmount = document.getElementById('total');
 
   if (allExpenses.length > 0) {
-
     for (i = 0; i < allExpenses.length; i++) {
-      var vydaj = document.createElement("li");
-      vydaj.innerText = "- " + allExpenses[i].value;
-      listVydaju.appendChild(vydaj);
-
-      var jmeno = document.createElement("span");
-      jmeno.innerText = allExpenses[i].name;
-      vydaj.appendChild(jmeno);
-
-      var smazat = document.createElement("button");
-      smazat.innerHTML = removeSVG;
-      smazat.setAttribute("id", allExpenses[i].id);
-
-      smazat.onclick = function() {
-        removeExpense(this.id);
-      }
-      vydaj.appendChild(smazat);
-
+      const vydaj = createLi();
+      createNameSpan(vydaj);
+      createRemoveButton(vydaj);
+      createCategoryNameSpan(vydaj);
+      createValueSpan(vydaj);
+      createShowButton(vydaj);
       sum += parseInt(allExpenses[i].value);
     }
-    totalAmount.innerHTML = "- " + sum;
-
-
+    totalAmount.innerHTML = sum;
   } else {
     totalAmount.innerHTML = "";
   }
-// }
-
+  // console.log(allExpenses);
 }
 
 renderExpenses();
-
-function removeExpense(expenseId) {
-
-  allExpenses = allExpenses.filter(function(expense) {
-    return expenseId != expense.id;
-  });
-
-  localStorage.removeItem('allExpenses');
-  updateData();
-  renderExpenses();
-
-};

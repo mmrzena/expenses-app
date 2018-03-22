@@ -13,20 +13,21 @@ body {
 }
 
 #header {
-  width: 550px;
-  height: 200px;
-  position: fixed;
+  width: 100%;
+  min-height: 200px;
+  position: relative;
   top: 0;
   left: 50%;
   z-index: 3;
   margin: 0 -275px 0 -275px;
   display: inline;
+  align-items: center;
 }
 
 #addItem {
   width: 300px;
   /* max-width: calc(100% - 100px); */
-  height: 100px;
+  min-height: 100px;
   margin-top: 30px;
   background: rgba(48, 48, 48, 1);
   border-radius: 30px;
@@ -35,8 +36,21 @@ body {
   position: relative;
   display: inline-block;
   z-index: 3;
-
 }
+
+
+
+#addItem select {
+  margin-top: 10px;
+  display: block;
+}
+
+/* .food {
+  background-color: green;
+}
+.transport {
+  background-color: yellow;
+} */
 
 #addItem input {
   height: 40px;
@@ -55,6 +69,7 @@ body {
 
 #addItem input[type=number]{
   margin: 0;
+  margin-bottom: 17px;
   color: #f25959;
 }
 
@@ -64,6 +79,11 @@ body {
   -moz-appearance: none;
 }
 
+#selectCategory, #selectCountry {
+  width: 65%;
+  padding-left: 16px;
+  border: 1px solid white;
+}
 #addItem button {
   width: 74px;
   height: 74px;
@@ -78,7 +98,8 @@ body {
   cursor: pointer;
 }
 
-#addItem button:active, #addItem button svg:active, ul li button svg:active {
+#addItem button:active, #addItem button svg:active, ul li button svg:active,
+ .modalContentDiv button:active, .showDetails:active {
   transform: scale(0.94, 0.94);
 }
 
@@ -98,6 +119,8 @@ ul li button svg:active {
 li button svg:hover{
   fill: #e83535;
 }
+
+
 
 #total {
   width: 170px;
@@ -119,6 +142,8 @@ li button svg:hover{
   border: 5px solid #f25959;
 }
 
+
+
 .list {
   width: 100%;
   height: 100%;
@@ -128,45 +153,105 @@ li button svg:hover{
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  display: block;
 }
 
 ul {
   position: relative;
   padding: 0;
   margin: 0;
+  display: block;
 }
 
 ul li {
   width: calc(100% - 120px);
   max-width: 500px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.6);
+  min-height: 80px;
+  /* background: rgba(255, 255, 255, 0.6); */
   border-radius: 30px;
   border: 3px solid black;
   padding: 15px 20px 20px 20px;
   position: relative;
+  display: block;
   list-style: none;
   font-size: 32px;
-  color: #f25959;
-  text-align: right;
   z-index: 1;
   margin: 0 auto;
   margin-bottom: 20px;
   font-weight: bold;
 }
 
+
+
+
+
 ul li:first-child{
-  margin-top: 200px;
+  margin-top: 20px;
 }
 
-span {
-  position: absolute;
-  left: 20px;
+.expenseName {
+  position: relative;
   color: black;
   text-transform: uppercase;
   padding: 0;
   margin: 0;
+  padding-right: 40px;
   font-weight: 500;
+  overflow: hidden !important;
+  white-space: nowrap;
+  width: 250px;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+
+.foodSpan, .transportSpan, .drinksSpan, .gateSpan, .accommodationSpan,
+.rentSpan, .partySpan, .groceriesSpan, .entertainmentSpan, .otherSpan{
+  padding: 0;
+  font-size: 26px;
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  opacity: 0.8;
+}
+
+.foodSpan {
+  color: rgb(74, 163, 68);
+}
+.transportSpan {
+  color: rgb(60, 118, 168);
+}
+.drinksSpan {
+  color: rgb(247, 123, 199);
+}
+.gateSpan{
+  color: rgb(99, 65, 46);
+}
+.accommodationSpan {
+  color: rgb(232, 232, 58);
+}
+.rentSpan {
+  color: rgb(36, 201, 61);
+}
+.partySpan {
+  color: rgb(35, 201, 192);
+}
+.entertainmentSpan {
+  color: rgb(70, 35, 201);
+}
+.otherSpan {
+  color: rgb(61, 58, 60);
+}
+
+
+
+
+.expenseValue {
+  color: #f25959;
+  position: absolute;
+  right: 60px;
+  margin-top: 5px;
+  font-size: 50px;
+  padding: 0;
 }
 
 ul li button {
@@ -177,11 +262,12 @@ ul li button {
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 70%;
+  left: 94%;
   margin: -15px;
   cursor: pointer;
   padding: 0;
+  z-index: 5;
 }
 
 ul li button svg {
@@ -190,6 +276,73 @@ ul li button svg {
   margin: 0 auto;
 }
 
+.showDetails {
+  top: 35%;
+  left: 95%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.showDetails:hover{
+  font-weight: bold;
+}
+
+.modalDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 6;
+  padding: 0;
+}
+
+.modalContentDiv {
+  position: relative;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 40px;
+  width: calc(100% - 140px);
+  max-width: 600px;
+  max-height: 600px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.modalContentDiv .spanText {
+  display: inline-block;
+  font-size: 16px;
+  margin: 15px 0 0 0;
+}
+
+.modalContentDiv .spanDetail {
+  display: block;
+  font-size: 24px;
+  font-weight: bold; 
+
+}
+
+.modalContentDiv button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modalContentDiv button:hover {
+  color: #e83535;
+  border: 2px solid #e83535;
+}
 
 @media only screen and (max-width: 500px) {
   body{
@@ -228,8 +381,8 @@ ul li button svg {
       width: calc(100% - 45px);
   }
 
-  ul li:first-child {
+  /* ul li:first-child {
 
     margin-top: 270px;
-  }
+  } */
 }
