@@ -202,11 +202,12 @@ ul li .expenseName {
   text-transform: uppercase;
   padding: 0;
   margin: 0;
-  padding-right: 40px;
+  /* padding-right: 40px; */
   font-weight: 500;
   overflow: hidden !important;
   white-space: nowrap;
-  width: 250px;
+  /* width: 400px; */
+  width: 90%;
   text-overflow: ellipsis;
   display: inline-block;
 }
@@ -256,7 +257,7 @@ ul li .expenseName {
   padding: 0;
   font-size: 26px;
   position: absolute;
-  top: 70px;
+  top: 65px;
   left: 20px;
   opacity: 0.8;
 }
@@ -302,10 +303,14 @@ ul li .expenseName {
 .expenseValue {
   color: #f25959;
   position: absolute;
-  right: 60px;
-  margin-top: 5px;
-  font-size: 50px;
+  right: 65px;
+  margin-top: 40px;
+  font-size: 35px;
   padding: 0;
+}
+
+.modalContentDiv ul li .expenseValue {
+  margin-top: 17px;
 }
 
 ul li button {
@@ -372,7 +377,6 @@ ul li button svg {
 .modalContentDiv #totalFiltredSum {
   display: inline-block;
   width: 100%;
-  /* background-color: black; */
   text-align: center;
   font-size: 30px;
   margin-top: 50px;
@@ -463,9 +467,6 @@ ul li button svg {
     margin-top: 210px;
   }
 
-  ul li .expenseName{
-    width: 200px;
-  }
 
   .modalContentDiv ul li:first-child {
     margin-top: 20px;
@@ -482,7 +483,10 @@ ul li button svg {
   }
 
   .modalContentDiv ul li .expenseName {
-    width: 200px;
+    top:5px;
+  }
+  .modalContentDiv ul li .expenseValue {
+    margin-top: 38px;
   }
 
 }
