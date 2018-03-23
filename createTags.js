@@ -1,25 +1,25 @@
-function createLi(){
+function createLi(parent){
   var vydaj = document.createElement("li");
-  listVydaju.appendChild(vydaj);
+  parent.appendChild(vydaj);
   toggleCategoryClass(vydaj);
   return vydaj;
 }
-function createValueSpan(vydaj){
+function createValueSpan(vydaj, array){
   var expenseValue = document.createElement("span");
-  expenseValue.innerText = allExpenses[i].value;
+  expenseValue.innerText = array[i].value;
   vydaj.appendChild(expenseValue);
   expenseValue.className = "expenseValue";
 }
 
-function createNameSpan(vydaj){
+function createNameSpan(vydaj, array){
   var name = document.createElement("span");
-  name.innerText = allExpenses[i].name;
+  name.innerText = array[i].name;
   vydaj.appendChild(name);
   name.className = "expenseName";
 }
-function createCategoryNameSpan(vydaj){
+function createCategoryNameSpan(vydaj, array){
   var categoryName = document.createElement("span");
-  categoryName.innerText = allExpenses[i].categoryName;
+  categoryName.innerText = array[i].categoryName;
   vydaj.appendChild(categoryName);
   toggleSpanClass(categoryName);
 }
@@ -35,18 +35,18 @@ function createRemoveButton(vydaj){
   vydaj.appendChild(smazat);
 }
 
-function createShowButton(vydaj){
+function createShowButton(vydaj, array){
   var show = document.createElement("button");
   show.innerText = "i";
   let showObject = new Object()
-  showObject.id= allExpenses[i].id;
-  showObject.name= allExpenses[i].name;
-  showObject.value= allExpenses[i].value;
-  showObject.categoryId = allExpenses[i].categoryId;
-  showObject.categoryName= allExpenses[i].categoryName;
-  showObject.countryId= allExpenses[i].countryId;
-  showObject.countryName= allExpenses[i].countryName;
-  showObject.comment = allExpenses[i].comment;
+  showObject.id= array[i].id;
+  showObject.name= array[i].name;
+  showObject.value= array[i].value;
+  showObject.categoryId = array[i].categoryId;
+  showObject.categoryName= array[i].categoryName;
+  showObject.countryId= array[i].countryId;
+  showObject.countryName= array[i].countryName;
+  showObject.comment = array[i].comment;
   show.onclick = function() {
     showDetails(showObject);
   }

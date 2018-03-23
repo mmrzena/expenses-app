@@ -13,7 +13,6 @@ addButton.addEventListener("click", function() {
   var countryId =  selectCountry.value;
   var nameOfCountry =  selectCountry.options[selectCountry.selectedIndex].text;
   var comment = document.getElementById('comment').value;
-  console.log(nameOfCategory)
   if (name && expense) {
     if (allExpenses.length == 0) {
       id = 1;
@@ -79,12 +78,12 @@ function renderExpenses() {
 
   if (allExpenses.length > 0) {
     for (i = 0; i < allExpenses.length; i++) {
-      const vydaj = createLi();
-      createNameSpan(vydaj);
+      const vydaj = createLi(listVydaju);
+      createNameSpan(vydaj, allExpenses);
       createRemoveButton(vydaj);
-      createCategoryNameSpan(vydaj);
-      createValueSpan(vydaj);
-      createShowButton(vydaj);
+      createCategoryNameSpan(vydaj, allExpenses);
+      createValueSpan(vydaj, allExpenses);
+      createShowButton(vydaj, allExpenses);
       sum += parseInt(allExpenses[i].value);
     }
     totalAmount.innerHTML = sum;

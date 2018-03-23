@@ -1,24 +1,24 @@
 function showDetails(showObject) {
-  const modalDiv = createModalDiv();
-  const modalContentDiv = createModalContentDiv(modalDiv);
+  const modalDiv = createModalDiv('modalDiv');
+  const modalContentDiv = createModalContentDiv(modalDiv, 'modalContentDiv');
   detailSpans(modalContentDiv, showObject);
   closeButton(modalDiv, modalContentDiv);
 
 
 }
 
-function createModalDiv() {
+function createModalDiv(identity) {
   let modalDiv = document.createElement('div');
   let bodyTag = document.getElementsByTagName("BODY")[0];
-  modalDiv.className = "modalDiv";
+  modalDiv.className = identity;
   bodyTag.appendChild(modalDiv);
   return modalDiv;
 }
 
-function createModalContentDiv(modalDiv) {
+function createModalContentDiv(modalDiv, identity) {
   let modalContentDiv = document.createElement('div');
   modalDiv.appendChild(modalContentDiv);
-  modalContentDiv.className = "modalContentDiv";
+  modalContentDiv.className = identity;
   return modalContentDiv
 }
 
@@ -72,8 +72,10 @@ function closeButton(modalDiv, modalContentDiv) {
   let closeButton = document.createElement('button');
   modalContentDiv.appendChild(closeButton);
   closeButton.innerText = "X";
+  closeButton.className = "closeButton";
   closeButton.onclick = function() {
-      modalDiv.style.display = "none";
+      modalDiv.parentNode.removeChild(modalDiv);
+
   }
 
 
