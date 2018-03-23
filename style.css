@@ -229,10 +229,10 @@ ul li .expenseName {
   font-weight: 500;
   overflow: hidden !important;
   white-space: nowrap;
-  width: 240px;
+  width: 90%;
   text-overflow: ellipsis;
   text-align: left;
-  top: 24%;
+  top:8px;
 }
 
 .modalContentDiv ul li {
@@ -241,6 +241,7 @@ ul li .expenseName {
   padding-left: 20px;
   margin: 0 auto;
   margin-top: 20px;
+  height: 100px;
 }
 
 .modalContentDiv ul li:first-child {
@@ -249,6 +250,10 @@ ul li .expenseName {
 
 .modalContentDiv ul li .expenseValue {
   right: 15px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
 
 }
 
@@ -309,9 +314,6 @@ ul li .expenseName {
   padding: 0;
 }
 
-.modalContentDiv ul li .expenseValue {
-  margin-top: 17px;
-}
 
 ul li button {
   background: rgba(0, 0, 0, 0);
@@ -482,11 +484,14 @@ ul li button svg {
     position: relative;
   }
 
-  .modalContentDiv ul li .expenseName {
+  /* .modalContentDiv ul li .expenseName {
     top:5px;
-  }
-  .modalContentDiv ul li .expenseValue {
-    margin-top: 38px;
-  }
+  } */
+  /* .modalContentDiv ul li .expenseValue {
+    margin-top: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+  } */
 
 }
