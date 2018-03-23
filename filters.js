@@ -94,15 +94,15 @@ function renderFiltered(filterUl, nameOfCountry, nameOfCategory) {
       sum += parseInt(filteredExpenses[i].value);
     }
     if (nameOfCountry === 'ALL' && nameOfCategory != 'ALL') {
-      totalFiltredSum.innerHTML = "You spend " + sum + " on " + nameOfCategory;
+      totalFiltredSum.innerHTML = "You've spent " + sum + " on " + nameOfCategory;
 
     } else if (nameOfCategory === 'ALL' && nameOfCountry != 'ALL') {
-      totalFiltredSum.innerHTML = "You spend " + sum + " in " + nameOfCountry;
+      totalFiltredSum.innerHTML = "You've spent " + sum + " in " + nameOfCountry;
 
     } else if (nameOfCountry === 'ALL' && nameOfCategory === 'ALL') {
-      totalFiltredSum.innerHTML = "You spend " + sum + " in total";
+      totalFiltredSum.innerHTML = "You've spent " + sum + " in total";
     } else {
-      totalFiltredSum.innerHTML = "You spend " + sum + " on " + nameOfCategory + " in " + nameOfCountry;
+      totalFiltredSum.innerHTML = "You've spent " + sum + " on " + nameOfCategory + " in " + nameOfCountry;
     }
 
 
