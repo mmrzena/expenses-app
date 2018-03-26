@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Mina:400,700&subset=latin-ext');
+/* @import url('https://fonts.googleapis.com/css?family=Mina:400,700&subset=latin-ext'); */
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,700');
 
 body, html {
   padding: 0;
@@ -8,9 +9,8 @@ body, html {
 body {
   width: 100%;
   height: 100%;
-  background-color: rgba(237, 237, 237, 0.5);
-  /* background-color: rgba(255, 94, 94, 0.8); */
-  font-family: Mina;
+  background-color: rgba(94, 193, 229, 0.4);
+  font-family: 'Maven Pro';
 }
 
 #header {
@@ -18,56 +18,63 @@ body {
   min-height: 200px;
   position: relative;
   top: 0;
-  /* left: 50%; */
   z-index: 3;
-  /* margin: 0 -275px 0 -275px; */
-  /* transform: translateX(-50%); */
   display: block;
   text-align: center;
+  padding-bottom: 20px;
 }
 
 #addItem {
-  width: 300px;
-  /* max-width: calc(100% - 100px); */
+  width: 99%;
+  max-width: 1200px;
   min-height: 100px;
-  margin: 30px 0 30px -175px;
-
-  background: rgba(48, 48, 48, 1);
-  border-radius: 30px;
-  border: 5px solid black;
-  padding: 20px;
+  margin: 30px auto;
+  margin-bottom: 10px;
+  background-color: rgba(229, 94, 114,0.8);
+  border-radius: 10px;
+  padding: 40px;
   position: relative;
+  box-sizing: border-box;
   display: inline-block;
   z-index: 3;
   text-align: left;
-}
-
-
-
-#addItem select {
-  margin-top: 10px;
-  display: block;
+  font-family: 'Maven Pro';
 }
 
 #addItem input {
   height: 40px;
-  width: 65%;
-  font-size: 20px;
-  border: 1px solid white;
-  background: rgba(255, 255, 255, 0.2);
+  width: 100%;
+  font-size: 25px;
+  border: none;
+  background-color: white;
   border-radius: 5px;
   text-indent: 16px;
   margin-bottom: 17px;
-  color: white;
+  color: rgba(51, 51, 51,1);
   padding-right: 10px;
   box-sizing: border-box;
-  font-family: Mina;
+}
+
+#addItem #name {
+  height: 50px;
+}
+
+#addItem #comment {
+  background-color: rgba(255,255,255,0.8)  ;
+  width: 70%;
+  opacity: 0.8;
 }
 
 #addItem input[type=number]{
   margin: 0;
+  width: 50%;
+  position: relative;
+  height: 80px;
+  font-size: 20px;
   margin-bottom: 17px;
-  color: #f25959;
+  color: #333;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 #addItem input[type=number]::-webkit-inner-spin-button {
@@ -76,22 +83,36 @@ body {
   -moz-appearance: none;
 }
 
-#selectCategory, #selectCountry {
-  width: 65%;
-  padding: 5px;
-  padding-left: 16px;
-  border: 1px solid black;
-  background-color: white;
+#addItem input::-webkit-input-placeholder{
+  opacity: 0.5;
 }
+
+#selectCategory, #selectCountry {
+  width: 100%;
+  padding: 5px;
+  padding-left: 11px;
+  margin-bottom: 15px;
+  height: 40px;
+  position: relative;
+  font-weight: bold;
+  border: none;
+  display: inline;
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
 #addItem button {
-  width: 74px;
-  height: 74px;
+  width: 100px;
+  height: 100px;
   position: absolute;
-  border-radius: 37px;
-  border: 3px solid white;
+  border-radius: 50%;
+  border: none;
   box-shadow: none;
-  top: 50%;
-  right: 20%;
+  background-color: white;
+  top: 70%;
+  left: 80%;
   margin: -37px;
   float: left;
   cursor: pointer;
@@ -119,47 +140,49 @@ li button svg:hover{
   fill: #e83535;
 }
 
-
-
 #total {
-  width: 170px;
-  height: 140px;
-  line-height: 140px;
-  background: rgba(35, 35, 35, 1);
-  font-size: 30px;
+  width: 97%;
+  max-width: 1200px;
+  height: 100px;
+  line-height: 100px;
+  background: rgba(35, 35, 35, 0.1);
+  font-size: 60px;
+  font-weight: bold;
   text-transform: uppercase;
-  margin: 30px 0 0 10px;
-  border-radius: 5px;
+  margin: 3px auto;
+  border-radius: 10px;
   padding: 0 5px 0 5px;
-  position: absolute;
-  display: inline-block;
-  color: white;
+  top: 0;
+  left: 0;
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  color: black;
   z-index: 3;
   text-align: center;
-  border-radius: 30px;
-  border: 5px solid #f25959;
 }
 
 #filterButton {
   background-image: url('filter.png');
   background-repeat: no-repeat;
   background-position: center;
-  width: 150px;
-  height: 90px;
-  margin: 210px 0 0 27px;
-  border-radius: 5px;
-  position: absolute;
+  background-size: 100%;
+  margin-left: 10px;
+  width: 70px;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+  background-color: transparent;
+  display: block;
   z-index: 3;
-  border-radius: 30px;
+  border-radius: 10px;
   border: 0;
   cursor: pointer;
 }
 
-
 .list {
   width: 100%;
   height: 100%;
-  padding: 0 45px 0 45px;
   box-sizing: border-box;
   text-align: left;
   margin: 0 auto;
@@ -176,22 +199,20 @@ ul {
 }
 
 li {
-  width: calc(100% - 120px);
-  max-width: 500px;
+  width: 90%;
+  max-width: 1150px;
   min-height: 80px;
-  background: rgba(255, 255, 255, 0.6);
-  /* background-color: rgba(237, 237, 237, 0.5); */
-  border-radius: 30px;
-  border: 3px solid black;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  border-bottom: 2px solid grey;
   padding: 15px 20px 20px 20px;
   position: relative;
   display: block;
   list-style: none;
-  font-size: 32px;
   z-index: 1;
   margin: 0 auto;
   margin-bottom: 20px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 
@@ -201,15 +222,17 @@ ul li .expenseName {
   color: black;
   text-transform: uppercase;
   padding: 0;
+  padding-bottom: 5px;
   margin: 0;
-  /* padding-right: 40px; */
-  font-weight: 500;
+  color: #333333;
+  font-weight: bold;
   overflow: hidden !important;
   white-space: nowrap;
-  /* width: 400px; */
+  font-size: 25px;
   width: 90%;
   text-overflow: ellipsis;
   display: inline-block;
+  border-bottom: 1.4px solid grey;
 }
 
 .modalContentDiv ul {
@@ -223,9 +246,7 @@ ul li .expenseName {
   color: black;
   text-transform: uppercase;
   left: 15px;
-  padding: 0;
   margin: 0;
-  padding-right: 40px;
   font-weight: 500;
   overflow: hidden !important;
   white-space: nowrap;
@@ -242,6 +263,7 @@ ul li .expenseName {
   margin: 0 auto;
   margin-top: 20px;
   height: 100px;
+  border: 2px solid #333;
 }
 
 .modalContentDiv ul li:first-child {
@@ -250,7 +272,7 @@ ul li .expenseName {
 
 .modalContentDiv ul li .expenseValue {
   right: 15px;
-  top: 10px;
+  top: 50%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 30px;
@@ -260,9 +282,13 @@ ul li .expenseName {
 .foodSpan, .transportSpan, .drinksSpan, .gateSpan, .accommodationSpan,
 .rentSpan, .partySpan, .groceriesSpan, .entertainmentSpan, .otherSpan{
   padding: 0;
-  font-size: 26px;
+  font-size: 20px;
   position: absolute;
-  top: 65px;
+  overflow: hidden !important;
+  white-space: nowrap;
+  width: 30%;
+  text-overflow: ellipsis;
+  top: 65%;
   left: 20px;
   opacity: 0.8;
 }
@@ -296,7 +322,8 @@ ul li .expenseName {
 }
 
 #categoryDropdown, #countryDropdown {
-  border: 2px solid black;
+  border: none;
+  border-bottom: 2px solid #333;
   background-color: transparent;
   padding: 5px;
   cursor: pointer;
@@ -306,10 +333,11 @@ ul li .expenseName {
 
 
 .expenseValue {
-  color: #f25959;
+  color: tomato;
   position: absolute;
-  right: 65px;
-  margin-top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 53%;
   font-size: 35px;
   padding: 0;
 }
@@ -324,7 +352,7 @@ ul li button {
   height: 30px;
   position: absolute;
   top: 70%;
-  left: 94%;
+  right: 40px;
   margin: -15px;
   cursor: pointer;
   padding: 0;
@@ -339,7 +367,7 @@ ul li button svg {
 
 .showDetails {
   top: 35%;
-  left: 95%;
+    right: 44px;
   width: 20px;
   height: 20px;
   border: 2px solid black;
@@ -370,7 +398,7 @@ ul li button svg {
   padding: 30px;
   width: calc(100% - 80px);
   min-width: 300px;
-  max-width: 600px;
+  max-width: 1150px;
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -395,7 +423,6 @@ ul li button svg {
   display: block;
   font-size: 24px;
   font-weight: bold;
-
 }
 
 .modalContentDiv .closeButton {
@@ -405,7 +432,7 @@ ul li button svg {
   width: 30px;
   height: 30px;
   background: white;
-  border: 2px solid black;
+  border: 2px solid #333;
   border-radius: 50%;
   font-weight: bold;
   cursor: pointer;
@@ -415,9 +442,10 @@ ul li button svg {
   width: 50px;
   height: 30px;
   background: white;
-  border: 2px solid black;
+  border: none;
+  border-bottom: 2px solid #333;
   position: absolute;
-  top: 30px;
+  top: 29px;
   left: 220px;
   font-weight: bold;
   cursor: pointer;
@@ -432,66 +460,11 @@ ul li button svg {
 
 @media only screen and (max-width: 600px) {
 
-  #header {
-    width: 100%;
-    left: 0;
-    margin: 0;
-    height: 260px;
-  }
-
-  #addItem {
-    width: 300px;
-    display: block;
-    margin: 20px auto;
-  }
-
-  #total {
-    height: 50px;
-    line-height: 50px;
-    width: 300px;
-    display: block;
-    margin: 0 auto;
-    position: relative;
-  }
-
-
-  .list {
-    padding: 0 15px 0 15px;
-    margin-top: 125px;
-  }
-
 
   li {
-      width: calc(100% - 45px);
-  }
-
-  ul li:first-child {
-    margin-top: 210px;
+      width: 89%;
   }
 
 
-  .modalContentDiv ul li:first-child {
-    margin-top: 20px;
-  }
-
-  #filterButton {
-    margin: 20px auto;
-    background-size: 30px;
-    width: 150px;
-    height: 50px;
-    display: block;
-
-    position: relative;
-  }
-
-  /* .modalContentDiv ul li .expenseName {
-    top:5px;
-  } */
-  /* .modalContentDiv ul li .expenseValue {
-    margin-top: 36px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 30px;
-  } */
 
 }
