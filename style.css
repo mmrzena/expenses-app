@@ -396,7 +396,7 @@ ul li button svg {
   border: 1px solid black;
   border-radius: 20px;
   padding: 30px;
-  width: calc(100% - 80px);
+  width: calc(100% - 68px);
   min-width: 300px;
   max-width: 1150px;
   margin: 0 auto;
