@@ -28,11 +28,11 @@ body {
   width: 99%;
   max-width: 1200px;
   min-height: 100px;
-  margin: 30px auto;
-  margin-bottom: 10px;
+  margin: 10px auto;
+  /* margin-bottom: 10px; */
   background-color: rgba(229, 94, 114,0.8);
   border-radius: 10px;
-  padding: 40px;
+  padding: 30px;
   position: relative;
   box-sizing: border-box;
   display: inline-block;
@@ -57,6 +57,7 @@ body {
 
 #addItem #name {
   height: 50px;
+
 }
 
 #addItem #comment {
@@ -71,10 +72,11 @@ body {
   position: relative;
   height: 80px;
   font-size: 20px;
-  margin-bottom: 17px;
+  /* margin-bottom: 17px; */
   color: #333;
   font-size: 30px;
   font-weight: bold;
+
 }
 
 #addItem input[type=number]::-webkit-inner-spin-button {
