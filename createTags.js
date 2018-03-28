@@ -1,7 +1,6 @@
 function createLi(parent){
   var vydaj = document.createElement("li");
   parent.appendChild(vydaj);
-  toggleCategoryClass(vydaj);
   return vydaj;
 }
 function createValueSpan(vydaj, array){
@@ -40,6 +39,7 @@ function createShowButton(vydaj, array){
   show.innerText = "i";
   let showObject = new Object()
   showObject.id= array[i].id;
+  showObject.date= array[i].date;
   showObject.name= array[i].name;
   showObject.value= array[i].value;
   showObject.categoryId = array[i].categoryId;
@@ -54,3 +54,12 @@ function createShowButton(vydaj, array){
   vydaj.appendChild(show);
   show.className = "showDetails";
   }
+
+function createDateSpan(vydaj, array) {
+  let dateSpan = document.createElement('span');
+  let date = array[i].date;
+  let formattedDate = formatDate(date)
+  dateSpan.innerHTML = formattedDate;
+  vydaj.appendChild(dateSpan);
+  dateSpan.className = "dateSpan";
+}
