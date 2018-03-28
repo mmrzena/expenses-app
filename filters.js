@@ -14,6 +14,7 @@ function filterCategory(nameOfCategory, nameOfCountry) {
       return nameOfCategory == data.categoryName && nameOfCountry == data.countryName;
     }
   });
+
 }
 
 
@@ -51,8 +52,48 @@ function createApplyFilterButton(modalContentDiv, filterUl) {
     filterCategory(nameOfCategory, nameOfCountry);
     renderFiltered(filterUl, nameOfCountry, nameOfCategory);
     // console.log(filteredExpenses)
+    if (!document.getElementById('orderByValueAsc')){
+      const orderDiv = createOrderDiv(modalContentDiv);
+      createOrderButtonByValueAsc(orderDiv, filterUl, nameOfCountry, nameOfCategory);
+      createOrderButtonByValueDesc(orderDiv, filterUl, nameOfCountry, nameOfCategory);
+    }
   }
 }
+
+function createOrderDiv(modalContentDiv){
+  let orderDiv = document.createElement('div');
+  modalContentDiv.insertBefore(orderDiv, modalContentDiv.childNodes[3]);
+  return orderDiv;
+}
+
+function createOrderButtonByValueAsc(orderDiv, filterUl, nameOfCountry, nameOfCategory){
+  let orderby = document.createElement('button');
+  orderDiv.appendChild(orderby);
+  orderby.className = "orderByValueAsc";
+  orderby.setAttribute("id", "orderByValueAsc");
+  orderby.innerText = "valueAsc";
+  orderby.onclick = function() {
+    filteredExpenses.sort(function(a,b) {
+      return a.value - b.value;
+    });
+    renderFiltered(filterUl, nameOfCountry, nameOfCategory);
+  }
+
+}
+function createOrderButtonByValueDesc(orderDiv, filterUl, nameOfCountry, nameOfCategory){
+  let orderby = document.createElement('button');
+  orderDiv.appendChild(orderby);
+  orderby.className = "orderByValueDesc";
+  orderby.innerText = "valueDesc";
+  orderby.onclick = function() {
+    filteredExpenses.sort(function(a,b) {
+      return b.value - a.value;
+    });
+    renderFiltered(filterUl, nameOfCountry, nameOfCategory);
+  }
+
+}
+
 
 function createFilterUl(modalContentDiv) {
   let filterUl = document.createElement('ul');
@@ -73,6 +114,7 @@ function createFilterDiv() {
   const filterUl = createFilterUl(modalContentDiv);
   createApplyFilterButton(modalContentDiv, filterUl);
 
+
 }
 
 
@@ -90,6 +132,7 @@ function renderFiltered(filterUl, nameOfCountry, nameOfCategory) {
 
       const vydaj = createLi(filterUl, filteredExpenses);
       createNameSpan(vydaj, filteredExpenses);
+      // createDateSpan(vydaj, filteredExpenses);
       createValueSpan(vydaj, filteredExpenses);
       sum += parseInt(filteredExpenses[i].value);
     }
