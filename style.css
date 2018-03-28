@@ -121,6 +121,7 @@ body {
   border: none;
   display: inline-block;
   text-align: left;
+    line-height: 40px;
   background-color: white;
   border-radius: 5px;
   font-weight: bold;
