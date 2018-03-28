@@ -39,12 +39,24 @@ function detailSpans(modalContentDiv, showObject) {
   modalContentDiv.appendChild(spanName);
   spanName.className = "spanDetail";
 
-  createSpanText(modalContentDiv, 'Comment');
+  createSpanText(modalContentDiv, 'Date');
 
-  let spanComment = document.createElement('span');
-  spanComment.innerText = showObject.comment;
-  modalContentDiv.appendChild(spanComment);
-  spanComment.className = "spanDetail";
+  let spanDate = document.createElement('span');
+  let formattedDate = formatDate(showObject.date);
+  spanDate.innerText = formattedDate;
+  modalContentDiv.appendChild(spanDate);
+  spanDate.className = "spanDetail";
+
+
+    if(showObject.comment != "") {
+      createSpanText(modalContentDiv, 'Comment');
+
+      let spanComment = document.createElement('span');
+      spanComment.innerText = showObject.comment;
+      modalContentDiv.appendChild(spanComment);
+      spanComment.className = "spanDetail";
+    }
+
 
   createSpanText(modalContentDiv, 'Category');
 
