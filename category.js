@@ -25,33 +25,22 @@ function renderDropdown(dropdown, array){
 renderDropdown(selectCategory, category);
 renderDropdown(selectCountry, country);
 
-function toggleCategoryClass(vydaj) {
-  if(allExpenses[i].categoryId == 1) {
-    vydaj.className = "food";
-  } else if(allExpenses[i].categoryId == 2) {
-    vydaj.className = "transport";
-  }
-}
+var categoryClasses = {
+  1: "foodSpan",
+  2: "transportSpan",
+  3: "drinksSpan",
+  4: "gateSpan",
+  5: "accommodationSpan",
+  6: "rentSpan",
+  7: "partySpan",
+  8: "groceriesSpan",
+  9: "entertainmentSpan",
+  10:"otherSpan",
+};
+
+
+
 function toggleSpanClass(categoryName) {
-  if(allExpenses[i].categoryId == 1) {
-    categoryName.className = "foodSpan";
-  } else if(allExpenses[i].categoryId == 2) {
-    categoryName.className = "transportSpan";
-  } else if(allExpenses[i].categoryId == 3) {
-    categoryName.className = "drinksSpan";
-  } else if(allExpenses[i].categoryId == 4) {
-    categoryName.className = "gateSpan";
-  } else if(allExpenses[i].categoryId == 5) {
-    categoryName.className = "accommodationSpan";
-  } else if(allExpenses[i].categoryId == 6) {
-    categoryName.className = "rentSpan";
-  } else if(allExpenses[i].categoryId == 7) {
-    categoryName.className = "partySpan";
-  } else if(allExpenses[i].categoryId == 8) {
-    categoryName.className = "groceriesSpan";
-  } else if(allExpenses[i].categoryId == 9) {
-    categoryName.className = "entertainmentSpan";
-  } else if(allExpenses[i].categoryId == 10) {
-    categoryName.className = "otherSpan";
-  }
+  var catId = allExpenses[i].categoryId.toString();
+  categoryName.className = categoryClasses[catId];
 }
