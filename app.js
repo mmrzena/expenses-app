@@ -41,7 +41,7 @@ addButton.addEventListener("click", function() {
       id = allExpenses.length + 1;
     }
 
-    let convertedExpense = (currencyRate[currencyValue] * parseInt(expense)).toFixed(2);
+    let convertedExpense = (currencyRate[currencyValue] * parseInt(expense)).toFixed(0);
     allExpenses.push({id: id, date: date, countedDate: countedDate, name: name, value: expense, categoryId: categoryId, categoryName: nameOfCategory,
                       countryId: countryId, countryName: nameOfCountry, comment: comment, currency: currency, convertedExpense: convertedExpense, currencyCode: currencyValue });
                       console.log(allExpenses);
