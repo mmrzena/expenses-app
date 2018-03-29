@@ -272,15 +272,16 @@ ul li .expenseName {
 }
 
 .modalContentDiv .dateSpan {
-  position: relative;
-  color: black;
-  font-weight: bold;
+  position: absolute;
+  left: 15px;
+  top: 69%;
+  color: grey;
+  font-weight: 400;
   text-transform: uppercase;
-  right: 0px;
   margin: 0;
   overflow: hidden !important;
   white-space: nowrap;
-  width: 30%;
+  width: 27%;
   text-overflow: ellipsis;
   text-align: left;
 }
@@ -308,7 +309,7 @@ ul li .expenseName {
 
 .modalContentDiv ul li {
   padding: 0;
-  width: calc(100% - 25px);
+  width: calc(100% - 4px);
   padding-left: 20px;
   margin: 0 auto;
   margin-top: 10px;
@@ -320,14 +321,6 @@ ul li .expenseName {
   margin-top: 20px;
 }
 
-.modalContentDiv ul li .expenseValue {
-  right: 15px;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 30px;
-
-}
 
 .foodSpan, .transportSpan, .drinksSpan, .gateSpan, .accommodationSpan,
 .rentSpan, .partySpan, .groceriesSpan, .entertainmentSpan, .otherSpan{
@@ -379,6 +372,7 @@ ul li .expenseName {
   cursor: pointer;
   text-align: left;
   margin-right: 5px;
+  margin-bottom: 5px;
   width: 100px;
 }
 
@@ -510,39 +504,35 @@ ul li button svg {
   margin-left: 30px;
 }
 
-.modalContentDiv .orderByValueAsc, .orderByValueDesc {
+.modalContentDiv .orderby {
   width: 100px;
   height: 30px;
   background: white;
   border: none;
-  font-weight: bold;
+  font-weight: 400;
   cursor: pointer;
   text-align: left;
   padding: 5px;
-  border-bottom: 2px solid #333;
+  border-bottom: 1px solid grey;
   display: inline;
-  opacity: 0.5;
+  color: grey;
   margin-right: 5px;
 }
-
-/* .modalContentDiv .orderByValueAsc {
-  margin-left: 70px;
-}
-.modalContentDiv .orderByValueDesc {
-  margin-left: 30px;
-} */
 
 
 .modalContentDiv .applyFitler:hover {
   color: #e83535;
   border: 2px solid #e83535;
 }
-.modalContentDiv .orderByValueAsc:hover, .orderByValueDesc:hover {
+.modalContentDiv .orderby:hover {
   color: #e83535;
-  border-bottom: 2px solid #e83535;
+  border-bottom: 1px solid #e83535;
 }
 
-@media only screen and (max-width: 600px) {
 
 
-}
+
+/* @media only screen and (max-width: 600px) {
+
+
+} */
