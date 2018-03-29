@@ -3,7 +3,7 @@ function showDetails(showObject) {
   const modalContentDiv = createModalContentDiv(modalDiv, 'modalContentDiv');
   detailSpans(modalContentDiv, showObject);
   closeButton(modalDiv, modalContentDiv);
-
+  console.log(showObject);
 
 }
 
@@ -72,12 +72,21 @@ function detailSpans(modalContentDiv, showObject) {
   modalContentDiv.appendChild(spanCountry);
   spanCountry.className = "spanDetail";
 
-  createSpanText(modalContentDiv, 'Value');
+  let spanText = document.createElement('span');
+  spanText.innerText = "Original Price in " + showObject.currencyCode.toUpperCase() ;
+  modalContentDiv.appendChild(spanText);
+  spanText.className = "spanText";
 
   let spanValue = document.createElement('span');
   spanValue.innerText = showObject.value;
   modalContentDiv.appendChild(spanValue);
   spanValue.className = "spanDetail";
+
+  createSpanText(modalContentDiv, 'Price in CZK');
+  let spanConvertedValue = document.createElement('span');
+  spanConvertedValue.innerText = showObject.convertedExpense;
+  modalContentDiv.appendChild(spanConvertedValue);
+  spanConvertedValue.className = "spanDetail";
 }
 
 function closeButton(modalDiv, modalContentDiv) {
