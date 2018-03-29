@@ -5,7 +5,7 @@ function createLi(parent){
 }
 function createValueSpan(vydaj, array){
   var expenseValue = document.createElement("span");
-  expenseValue.innerText = array[i].value;
+  expenseValue.innerText = array[i].convertedExpense;
   vydaj.appendChild(expenseValue);
   expenseValue.className = "expenseValue";
 }
@@ -42,6 +42,9 @@ function createShowButton(vydaj, array){
   showObject.date= array[i].date;
   showObject.name= array[i].name;
   showObject.value= array[i].value;
+  showObject.currency = array[i].currency;
+  showObject.currencyCode = array[i].currencyCode;
+  showObject.convertedExpense = array[i].convertedExpense;
   showObject.categoryId = array[i].categoryId;
   showObject.categoryName= array[i].categoryName;
   showObject.countryId= array[i].countryId;
