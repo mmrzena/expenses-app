@@ -115,7 +115,7 @@ function renderExpenses() {
       createCategoryNameSpan(vydaj, allExpenses);
       createValueSpan(vydaj, allExpenses);
       createShowButton(vydaj, allExpenses);
-      sum += parseInt(allExpenses[i].value);
+      sum += parseInt(allExpenses[i].convertedExpense);
     }
     totalAmount.innerHTML = sum;
   } else {
