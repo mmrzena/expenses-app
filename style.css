@@ -92,7 +92,7 @@ body {
 
 
 
-#selectCategory, #selectCountry {
+#selectCategory, #selectCountry, #currency {
   padding: 5px;
   padding-left: 11px;
   margin-bottom: 15px;
@@ -107,8 +107,18 @@ body {
   box-sizing: border-box;
 }
 
+#currency {
+  /* position: absolute; */
+width: 50%;
+display: block;
+/* height: 80px; */
+/* margin: 0; */
+/* margin-left: 5px; */
+}
+
 #selectCategory {
   width: 50%;
+  display: inline;
 }
 #selectCountry {
   width: calc(50% - 5px);
@@ -140,15 +150,15 @@ body {
 }
 
 #addItem button {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   position: absolute;
   border-radius: 50%;
   border: none;
   box-shadow: none;
   background-color: white;
-  top: 77%;
-  left: 75%;
+  top: 70%;
+  left: 74%;
   margin: -37px;
   float: left;
   cursor: pointer;
