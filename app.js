@@ -12,10 +12,11 @@ function formatDate(date){
 }
 
 function countDate(date){
-  let dateYear = parseInt(date.substr(0, 4));
-  let dateMonth = parseInt(date.substr(5, 2));
-  let dateDay = parseInt(date.substr(8, 2));
-  return dateDay + dateYear + dateMonth;
+  let dateYear = date.substr(0, 4);
+  let dateMonth = date.substr(5, 2);
+  let dateDay = date.substr(8, 2);
+  let dateTogether = dateYear + dateMonth + dateDay;
+  return parseInt(dateTogether);
 }
 
 
@@ -90,18 +91,16 @@ function renderExpenses() {
   if(localStorage.getItem('allExpenses')) {
   allExpenses = JSON.parse(localStorage.getItem('allExpenses'));
 }
-  // allExpenses.sort(function(a,b) {
-  //   return a.countedDate - b.countedDate;
-  // });
   document.getElementById('listVydaju').innerHTML = "";
   var sum = 0;
   var totalAmount = document.getElementById('total');
-
+  allExpenses.sort(function(a,b) {
+    return b.countedDate - a.countedDate;
+  });
   if (allExpenses.length > 0) {
     for (i = 0; i < allExpenses.length; i++) {
       const vydaj = createLi(listVydaju);
       createNameSpan(vydaj, allExpenses);
-      // createDateSpan(vydaj,allExpenses);
       createRemoveButton(vydaj);
       createCategoryNameSpan(vydaj, allExpenses);
       createValueSpan(vydaj, allExpenses);
@@ -112,7 +111,6 @@ function renderExpenses() {
   } else {
     totalAmount.innerHTML = "";
   }
-  // console.log(allExpenses);
 }
 
 renderExpenses();
