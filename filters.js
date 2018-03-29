@@ -56,6 +56,8 @@ function createApplyFilterButton(modalContentDiv, filterUl) {
       const orderDiv = createOrderDiv(modalContentDiv);
       createOrderButtonByValueAsc(orderDiv, filterUl, nameOfCountry, nameOfCategory);
       createOrderButtonByValueDesc(orderDiv, filterUl, nameOfCountry, nameOfCategory);
+      createOrderButtonByDateAsc(orderDiv, filterUl, nameOfCountry, nameOfCategory);
+      createOrderButtonByDateDesc(orderDiv, filterUl, nameOfCountry, nameOfCategory)
     }
   }
 }
@@ -69,7 +71,7 @@ function createOrderDiv(modalContentDiv){
 function createOrderButtonByValueAsc(orderDiv, filterUl, nameOfCountry, nameOfCategory){
   let orderby = document.createElement('button');
   orderDiv.appendChild(orderby);
-  orderby.className = "orderByValueAsc";
+  orderby.className = "orderby";
   orderby.setAttribute("id", "orderByValueAsc");
   orderby.innerText = "valueAsc";
   orderby.onclick = function() {
@@ -83,11 +85,38 @@ function createOrderButtonByValueAsc(orderDiv, filterUl, nameOfCountry, nameOfCa
 function createOrderButtonByValueDesc(orderDiv, filterUl, nameOfCountry, nameOfCategory){
   let orderby = document.createElement('button');
   orderDiv.appendChild(orderby);
-  orderby.className = "orderByValueDesc";
+  orderby.className = "orderby";
   orderby.innerText = "valueDesc";
   orderby.onclick = function() {
     filteredExpenses.sort(function(a,b) {
       return b.value - a.value;
+    });
+    renderFiltered(filterUl, nameOfCountry, nameOfCategory);
+  }
+
+}
+
+function createOrderButtonByDateAsc(orderDiv, filterUl, nameOfCountry, nameOfCategory){
+  let orderby = document.createElement('button');
+  orderDiv.appendChild(orderby);
+  orderby.className = "orderby";
+  orderby.innerText = "dateAsc";
+  orderby.onclick = function() {
+    filteredExpenses.sort(function(a,b) {
+      return a.countedDate - b.countedDate;
+    });
+    renderFiltered(filterUl, nameOfCountry, nameOfCategory);
+  }
+
+}
+function createOrderButtonByDateDesc(orderDiv, filterUl, nameOfCountry, nameOfCategory){
+  let orderby = document.createElement('button');
+  orderDiv.appendChild(orderby);
+  orderby.className = "orderby";
+  orderby.innerText = "dateDesc";
+  orderby.onclick = function() {
+    filteredExpenses.sort(function(a,b) {
+      return b.countedDate - a.countedDate;
     });
     renderFiltered(filterUl, nameOfCountry, nameOfCategory);
   }
@@ -132,7 +161,7 @@ function renderFiltered(filterUl, nameOfCountry, nameOfCategory) {
 
       const vydaj = createLi(filterUl, filteredExpenses);
       createNameSpan(vydaj, filteredExpenses);
-      // createDateSpan(vydaj, filteredExpenses);
+      createDateSpan(vydaj, filteredExpenses);
       createValueSpan(vydaj, filteredExpenses);
       sum += parseInt(filteredExpenses[i].value);
     }
