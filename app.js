@@ -24,7 +24,6 @@ function countDate(date){
 addButton.addEventListener("click", function() {
   let date = document.getElementById('date').value;
   let countedDate = countDate(date);
-  console.log(countedDate);
   let expense = document.getElementById('expense').value;
   let name = document.getElementById('name').value;
   let id;
@@ -33,14 +32,19 @@ addButton.addEventListener("click", function() {
   let countryId =  selectCountry.value;
   let nameOfCountry =  selectCountry.options[selectCountry.selectedIndex].text;
   let comment = document.getElementById('comment').value;
+  let currency = currencyDropdown.options[currencyDropdown.selectedIndex].text;
+  let currencyValue = currencyDropdown.value;
   if (name && expense && date) {
     if (allExpenses.length == 0) {
       id = 1;
     } else {
       id = allExpenses.length + 1;
     }
+
+    let convertedExpense = (currencyRate[currencyValue] * parseInt(expense)).toFixed(2);
     allExpenses.push({id: id, date: date, countedDate: countedDate, name: name, value: expense, categoryId: categoryId, categoryName: nameOfCategory,
-                      countryId: countryId, countryName: nameOfCountry, comment: comment });
+                      countryId: countryId, countryName: nameOfCountry, comment: comment, currency: currency, convertedExpense: convertedExpense, currencyCode: currencyValue });
+                      console.log(allExpenses);
     updateData();
     document.getElementById('expense').value = '';
     document.getElementById('name').value = '';
@@ -78,6 +82,11 @@ var allExpenses = [
   //   id: "5",
   //   name: "Fifth",
   //   value: 50
+  // price: {
+  // amount:100,
+  // original:'BAHT',
+  // :100,
+// }
   // }
 ];
 
@@ -97,6 +106,7 @@ function renderExpenses() {
   allExpenses.sort(function(a,b) {
     return b.countedDate - a.countedDate;
   });
+  console.log(allExpenses);
   if (allExpenses.length > 0) {
     for (i = 0; i < allExpenses.length; i++) {
       const vydaj = createLi(listVydaju);
